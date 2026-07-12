@@ -1,5 +1,19 @@
 const projects = [
   {
+    title: "SSBTE Prospector AI",
+    description: "AI-powered parts-sourcing web app. Employees enter an out-of-stock industrial part and get live sources for the exact part plus evidence-backed cross-brand alternatives, shown as ranked result cards. Bilingual (English/Arabic) with a custom two-stage AI pipeline built on strict anti-hallucination rules.",
+    image: "/assets/prospector.png",
+    tech: ["Python", "FastAPI", "React", "TypeScript", "WebSockets", "AI"],
+    link: "",
+  },
+  {
+    title: "KSP Mission Control",
+    description: "Real-time mission control layer for Kerbal Space Program. An AI CAPCOM gives live voice callouts, verifies mission milestones against in-game telemetry, and responds with NASA-style radio chatter. Multi-process system across an Electron app, Python bridge, and C# game mod.",
+    image: "/assets/mission-control.jpg",
+    tech: ["Electron", "React", "Python", "C#", "WebSockets"],
+    link: "https://youtu.be/sEnsxM6UpRI",
+  },
+  {
     title: "SSBTE Website",
     description: "Redesigned the SSBTE website with React, Vite, and modern CSS, enhancing UI/UX, performance, and SEO visibility.",
     image: "/assets/ssbte.net.png",
@@ -45,50 +59,67 @@ const Projects = () => {
       </h2>
 
       <div className="space-y-8">
-        {projects.map((project, index) => (
-          <a
-            key={index}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block p-6 rounded-lg shadow-lg bg-transparent border border-gray-700 transition-all duration-300 hover:shadow-blue-500/50 hover:border-blue-400 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6"
-            itemProp="url"
-          >
-            <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-md">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                itemProp="image"
-              />
-            </div>
+        {projects.map((project, index) => {
+          // Same visual style for both; render as an <a> only when there's a
+          // link, otherwise a plain <div> (no dead anchor, no pointer cursor).
+          const cardClass =
+            "block p-6 rounded-lg shadow-lg bg-transparent border border-gray-700 transition-all duration-300 hover:shadow-blue-500/50 hover:border-blue-400 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6";
 
-            <div className="text-center md:text-left flex flex-col items-center md:items-start">
-              <div>
-                <h3
-                  className="text-xl font-semibold text-white"
-                  itemProp="headline"
-                >
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 mt-1" itemProp="description">
-                  {project.description}
-                </p>
+          const cardContent = (
+            <>
+              <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-md">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  itemProp="image"
+                />
+              </div>
 
-                <div className="flex flex-wrap gap-2 mt-2 justify-center md:justify-start">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm border border-blue-400"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              <div className="text-center md:text-left flex flex-col items-center md:items-start">
+                <div>
+                  <h3
+                    className="text-xl font-semibold text-white"
+                    itemProp="headline"
+                  >
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-300 mt-1" itemProp="description">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mt-2 justify-center md:justify-start">
+                    {project.tech.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm border border-blue-400"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
+            </>
+          );
+
+          return project.link ? (
+            <a
+              key={index}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cardClass}
+              itemProp="url"
+            >
+              {cardContent}
+            </a>
+          ) : (
+            <div key={index} className={cardClass}>
+              {cardContent}
             </div>
-          </a>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
