@@ -29,7 +29,7 @@ const projects = [
   },
   {
     title: "E-commerce Demo",
-    description: "A full-featured e-commerce website built using Next.js 15 App Router, TypeScript, TailwindCSS, and Supabase. It includes product pages, cart, authentication, multi-language support, and HyperPay integration.",
+    description: "A demo storefront showcasing reusable e-commerce UI and flows — product browsing, cart, and checkout — built as a lightweight prototype with Next.js 15, TypeScript, and TailwindCSS.",
     image: "/assets/ecommerceDemo-preview.png",
     tech: ["Next.js", "TypeScript", "TailwindCSS", "Supabase", "HyperPay"],
     link: "https://demo-ecommerce-five-sepia.vercel.app/en",

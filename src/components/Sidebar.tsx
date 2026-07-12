@@ -56,9 +56,9 @@ const Sidebar = () => {
           itemProp="jobTitle"
           className="text-blue-400 mt-6 text-center text-lg max-w-sm leading-relaxed"
         >
-          Front-End Developer and Application Engineer based in Saudi Arabia,<br />
-          passionate about crafting accessible, pixel-perfect web applications <br />
-          with a focus on performance and clean code.
+          Software &amp; Systems Engineer building full-stack web apps and
+          AI-powered tools, and maintaining the network, server, and
+          infrastructure they run on — based in Saudi Arabia.
         </p>
       </section>
 
@@ -70,6 +70,9 @@ const Sidebar = () => {
         <a href="#experience" className="block text-gray-400 hover:text-blue-400 uppercase p-2 md:p-0">
           Experience
         </a>
+        <a href="#skills" className="block text-gray-400 hover:text-blue-400 uppercase p-2 md:p-0">
+          Skills
+        </a>
         <a href="#projects" className="block text-gray-400 hover:text-blue-400 uppercase p-2 md:p-0">
           Projects
         </a>
@@ -79,7 +82,7 @@ const Sidebar = () => {
       </nav>
 
       <div className="mt-10 flex space-x-4">
-        <a href="https://github.com/amerbman" className="text-gray-400 hover:text-blue-400 uppercase">GitHub</a>
+        <a href="https://github.com/engbman" className="text-gray-400 hover:text-blue-400 uppercase">GitHub</a>
         <a href="https://www.linkedin.com/in/amer-baosman/" className="text-gray-400 hover:text-blue-400 uppercase">LinkedIn</a>
       </div>
     </div>
